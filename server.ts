@@ -1,12 +1,13 @@
 import type {Request, Response} from 'express';
 import express from 'express';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import fs from 'fs';
 import { UrlModel } from './models/url.model';
 
 const app = express();
 app.use(express.json());
-dotenv.config();
+
+if (fs.existsSync('.env')) require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_URI!)
     .then(() => console.log('MongoDB connected!'))

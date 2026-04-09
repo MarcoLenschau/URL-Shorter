@@ -1,14 +1,17 @@
 version: '3.8'
 services:
   url-shorter:
-    name: url-shorter
-    build: .
+    container_name: url-shorter
+    image: ghcr.io/marcolenschau/url-shorter:latest
+    hostname: url-shorter
     ports:
       - "8000:8000"
     depends_on:
       - db
+    env_file:
+      - .env
   db:
-    name: url-shorter-db
+    container_name: url-shorter-db
     image: mongo:latest
     hostname: db
     restart: on-failure
