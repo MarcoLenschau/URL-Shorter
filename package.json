@@ -1,4 +1,11 @@
 {
+  "name": "url-shorter",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "tsc && node dist/server.js",
+    "build": "tsc"
+  },
   "dependencies": {
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
