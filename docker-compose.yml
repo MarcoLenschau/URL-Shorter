@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  url-shorter:
+    name: url-shorter
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    name: url-shorter-db
+    image: mongo:latest
+    hostname: db
+    restart: on-failure
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data: {}
